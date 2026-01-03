@@ -86,6 +86,9 @@ while running:
     # Fill the screen with black
     screen.fill(BLACK)
     
+    if running_simulation:
+        print("Simulation running...")
+
     # Draw the grid
     draw_grid()
     
