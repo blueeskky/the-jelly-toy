@@ -22,6 +22,13 @@ grid_height = screen_height // cell_size
 # Initialize grid
 grid = [[False for _ in range(grid_width)] for _ in range(grid_height)]
 
+# Add a simple starting pattern (glider)
+grid[10][10] = True
+grid[11][11] = True
+grid[11][12] = True
+grid[10][12] = True
+grid[9][12] = True
+
 # Simulation settings
 running_simulation = False
 clock = pygame.time.Clock()
@@ -82,13 +89,13 @@ while running:
 
     if running_simulation:
         grid = update_grid()
+        pygame.display.set_caption("Conway's Game of Life - Running")
+    else:
+        pygame.display.set_caption("Conway's Game of Life - Paused")
 
     # Fill the screen with black
     screen.fill(BLACK)
     
-    if running_simulation:
-        print("Simulation running...")
-
     # Draw the grid
     draw_grid()
     
